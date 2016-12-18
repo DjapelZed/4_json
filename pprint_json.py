@@ -1,15 +1,14 @@
 import json
 import shutil
 import codecs
-import os
+
 
 
 def load_data(filepath):
     shutil.copy2(filepath, r'json-txt.txt')
-    json_to_parse = codecs.open('json-txt.txt', 'r', 'utf_8_sig')
+    json_to_parse = codecs.open('json-txt.txt', 'r', 'cp1252')
     parsed_json = json.loads(json_to_parse.read())
     json_to_parse.close()
-    os.remove('file_json.txt')
     return parsed_json
 
 
