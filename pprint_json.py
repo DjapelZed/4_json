@@ -1,11 +1,9 @@
 import json
-import shutil
 import codecs
 
 
 def load_data(filepath):
-    shutil.copy2(filepath, r'local_json.json')
-    json_to_parse = codecs.open('clone.json', 'r', 'utf-8')
+    json_to_parse = codecs.open(filepath, 'r', 'utf-8')
     parsed_json = json.loads(json_to_parse.read())
     json_to_parse.close()
     return parsed_json
