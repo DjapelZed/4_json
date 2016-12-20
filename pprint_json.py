@@ -3,10 +3,9 @@ import codecs
 
 
 def load_data(filepath):
-    json_to_parse = codecs.open(filepath, 'r', 'utf-8')
-    parsed_json = json.loads(json_to_parse.read())
-    json_to_parse.close()
-    return parsed_json
+    with codecs.open(filepath, 'r', 'utf-8') as json_to_parse:
+        json_to_parse = json.loads(json_to_parse.read())
+    return json_to_parse
 
 
 def pretty_print_json(data):
